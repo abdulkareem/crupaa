@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pmd protocoles & materiels dentaires</title>
+
+
+    <!-- SLIDER REVOLUTION -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="rs-plugin/css/style.css" media="screen" />
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/settings.css' %}" media="screen" />
+
+
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!-- AWESOME FONT -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">   
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'stile.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+
+<!-- include navbar -->
+ {% include 'componenti/navbar.html' %}
+<!-- end navbar -->
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+      <p>@2015 All rights reserved PMD Biomedical - VAT: 03023565482</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+    <p class="social">
+      <i class="fa fa-facebook-square fa-2x"></i>
+      <i class="fa fa-linkedin-square fa-2x"></i>
+    </p>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
