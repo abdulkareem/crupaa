@@ -11,7 +11,25 @@ from django.core.mail import send_mail
 
 
 def index(request):
-	return render_to_response('index.html', context_instance=RequestContext(request))
+    language = "it"
+    session_language = "it"
+    if 'lang' in request.COOKIES:
+        language = request.COOKIES['lang']
+    if 'lang' in request.session:
+        session_language = request.session['lang']
+
+    slider_list = Slider.objects.filter(active = '1').order_by('id')
+    chisiamo = Page.objects.get(pk=1)
+    biomed = Page.objects.get(pk=2)
+    dentale = Page.objects.get(pk=3)
+    context = {'slider_list': slider_list,
+    			'chisiamo': chisiamo,
+    			'biomed': biomed,
+    			'dentale': dentale,
+                'language': language,
+                'session_language': session_language}
+    return render(request, 'index.html', context)
+	#return render_to_response('index.html', context_instance=RequestContext(request))
 
 
 ### setting language session

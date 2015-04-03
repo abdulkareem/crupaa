@@ -1,0 +1,33 @@
+<!-- revolution -->
+<section id="revolution">
+      <div class="tp-banner-container">
+          <div class="tp-banner" >
+            <ul>
+            	{%for slider in slider_list %}
+              <!-- SLIDE  -->
+              <li data-transition="fade" data-slotamount="5" data-masterspeed="700" >
+                <!-- MAIN IMAGE -->{% load cropping %}
+                <img src="{% cropped_thumbnail slider "cropping" %}"  alt="{{slider.titolo}}"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+              </li>
+              <!-- SLIDE  -->
+              {% endfor %}
+            </ul>
+          </div><!-- tp-banner -->
+      </div><!-- banner container -->
+              <script type="text/javascript">
+              var revapi;
+              jQuery(document).ready(function() {
+                   revapi = jQuery('.tp-banner').revolution(
+                  {
+                    delay:9000,
+                    startwidth:1170,
+                    startheight:500,
+                    hideThumbs:10,
+                    fullWidth:"on",
+                    forceFullWidth:"on"
+                  });
+              }); //ready
+            </script>
+
+            <!-- END REVOLUTION SLIDER -->
+</section>

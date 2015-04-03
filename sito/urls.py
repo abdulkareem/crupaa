@@ -7,6 +7,4 @@ from sito.views import *
 urlpatterns = [
     url(r'^$', index, name='home'),
     url(r'^language/(?P<language>[a-z\-]+)/$', language),
-
-
 ]
