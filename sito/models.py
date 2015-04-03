@@ -42,7 +42,7 @@ class Immagini(models.Model):
 	didascalia = models.TextField(null=True, blank=True)
 	cropping = ImageRatioField('image', '500x480')
 	slidepage = ImageRatioField('image', '870x480')
-	croppingthumb = ImageRatioField('image', '600x450')
+	croppingthumb = ImageRatioField('image', '600x300')
 	croppingslide = ImageRatioField('image', '1140x487')
 	croppingcarousel = ImageRatioField('image', '198x132')
 	freecropping = ImageRatioField('image', '1200x1125', free_crop=True, verbose_name="Freecropping")

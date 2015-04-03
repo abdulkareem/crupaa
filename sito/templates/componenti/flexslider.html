@@ -1,0 +1,46 @@
+<!-- Place somewhere in the <body> of your page -->
+<div id="slider" class="flexslider">
+  <ul class="slides">
+  	{% for immagini in biomed.galleria.all %}
+    <li>{% load cropping %}
+      <img src="{% cropped_thumbnail immagini "croppingthumb" %}" />
+    </li>
+	{% endfor %}
+    <!-- items mirrored twice, total of 12 -->
+  </ul>
+</div>
+
+<div id="carousel" class="flexslider">
+  <ul class="slides">
+ 	{% for immagini in biomed.galleria.all %}
+    <li>{% load cropping %}
+      <img src="{% cropped_thumbnail immagini "croppingthumb" %}" class="ximg" />
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+<script>
+	$(window).load(function() {
+	  // The slider being synced must be initialized first
+	  $('#carousel').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: false,
+	    slideshow: false,
+	    itemWidth: 210,
+	    itemMargin: 5,
+	    asNavFor: '#slider'
+	  });
+	 
+	  $('#slider').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: false,
+	    slideshow: false,
+	    sync: "#carousel"
+	  });
+	});
+</script>
