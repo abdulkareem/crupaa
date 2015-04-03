@@ -12,6 +12,9 @@ class Categorie(models.Model):
     def __unicode__(self):
 		return self.titolo
 
+    class Meta:
+        verbose_name_plural = "Categorie"
+
 
 
 class Aziende(models.Model):
@@ -74,6 +77,9 @@ class Prodotti(models.Model):
     def __unicode__(self):
         return self.titolo
 
+    class Meta:
+        verbose_name_plural = "Prodotti"
+
 
 class Page(models.Model):
     titolo = models.CharField("Titolo:", max_length=100, null=True, blank=True)
@@ -93,6 +99,9 @@ class Page(models.Model):
 
     def __unicode__(self):
         return self.titolo
+
+    class Meta:
+        verbose_name_plural = "Pagine"
 
 
 class Slider(models.Model):
