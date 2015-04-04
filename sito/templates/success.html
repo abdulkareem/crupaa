@@ -1,1 +1,44 @@
-success.html
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section id="contatti" >
+  <div class="container" style="margin-top: 70px;">
+    <div class="col-xs-12 titolo">
+      <h3>
+        {% if session_language = 'uk' %}
+			MESSAGE SENT SUCCESSFULLY
+        {% elif session_language = 'fr' %}
+			Message envoyé avec succès
+        {% else %}
+         	MESSAGGIO INVIATO CON SUCCESSO
+        {% endif %}
+      </h3>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    	<h3>
+    		<br><br><br>
+      {% if session_language = 'uk' %}
+			Will be redirected to Homepage between 5 seconds
+      {% elif session_language = 'fr' %}
+      	Seront redirigés vers la Home Page entre 5 secondes
+      {% else %}
+      	VERRAI REINDIRIZZATO ALLA HOME TRA 5 SECONDI
+      {% endif %}
+      <br><br><br>
+  		</h3>
+    </div>
+
+  </div><!-- container -->
+</section>
+
+			 <script>
+			// Redirect dopo 5 secondi
+			setTimeout(function() {
+			  window.location.href = "/";
+			}, 5000);
+			</script>
+
+
+{% endblock %}
