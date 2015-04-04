@@ -1,11 +1,25 @@
 <section id="chisiamo">
   <div class="container">
     <div class="col-xs-12 titolo">
-      <h3>{{chisiamo.titolo}}</h3>
+      <h3>
+        {% if session_language = 'uk' %}
+          {{chisiamo.titolo_uk}}
+        {% elif session_language = 'fr' %}
+          {{chisiamo.titolo_fr}}
+        {% else %}
+          {{chisiamo.titolo}}
+        {% endif %}
+      </h3>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <p>
-      	{{chisiamo.body|safe}}
+        {% if session_language = 'uk' %}
+           {{chisiamo.body_uk|safe}}
+        {% elif session_language = 'fr' %}
+           {{chisiamo.body_fr|safe}}
+        {% else %}
+      	   {{chisiamo.body|safe}}
+        {% endif %}
       </p>
     </div>
 

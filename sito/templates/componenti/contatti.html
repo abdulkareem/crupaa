@@ -1,7 +1,15 @@
 <section id="contatti">
   <div class="container">
     <div class="col-xs-12 titolo">
-      <h3>CONTATTI</h3>
+      <h3>
+        {% if session_language = 'uk' %}
+          CONTACT
+        {% elif session_language = 'fr' %}
+          CONTACT
+        {% else %}
+          CONTATTI
+        {% endif %}
+      </h3>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
       <form action="/contact/" method="post">
@@ -61,7 +69,10 @@
       <p>
         Seraphin Pasteur Ngele Ngele II<br>
         Tel: +39.3288130692<br>
-        info@pmdmedical.com
+        <a href="mailto:pasteurngele@yahoo.fr">pasteurngele@yahoo.fr</a><br>
+        Via Ricchino, 3<br>
+        25038 Rovato (BS)<br>
+        Italy
       </p>
     </div>
   </div><!-- container -->

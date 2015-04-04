@@ -11,24 +11,39 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">PMD</a>
+      <a class="navbar-brand" href="#">PMD BIOMEDICAL</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#chisiamo">CHI SIAMO</a></li>
-        <li><a href="#biomedicale">BIOMEDICALE</a></li>
-        <li><a href="#dentario">MATERIALE DENTARIO</a></li>
-        <li><a href="#contatti">CONTATTI</a></li>
-        <li><a href="#location">AREE OPERATIVE</a></li>
-
+        {% if session_language = 'uk' %}
+          <li><a href="#">HOME</a></li>
+          <li><a href="#chisiamo">ABOUT US</a></li>
+          <li><a href="#biomedicale">BIOMEDICAL</a></li>
+          <li><a href="#dentario">DENTAL PRODUCTS</a></li>
+          <li><a href="#contatti">CONTACT</a></li>
+          <li><a href="#location">WHERE WE WORK</a></li>
+        {% elif session_language = 'fr' %}
+          <li><a href="#">HOME</a></li>
+          <li><a href="#chisiamo">PROFIL</a></li>
+          <li><a href="#biomedicale">BIOMEDICAL</a></li>
+          <li><a href="#dentario">MATERIELS DENTAIRES</a></li>
+          <li><a href="#contatti">CONTACT</a></li>
+          <li><a href="#location">OÙ NOUS TRAVAILLONS</a></li>
+        {% else %}  
+          <li><a href="#">HOME</a></li>
+          <li><a href="#chisiamo">CHI SIAMO</a></li>
+          <li><a href="#biomedicale">BIOMEDICALE</a></li>
+          <li><a href="#dentario">MATERIALE DENTARIO</a></li>
+          <li><a href="#contatti">CONTATTI</a></li>
+          <li><a href="#location">DOVE SIAMO</a></li>
+        {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><img src="{% static 'img/fra.png' %}" class="flag" title="French Flag" alt="bandiera francese"></a></li>
-        <li><a href="#"><img src="{% static 'img/ita.png' %}" class="flag" title="italian Flag" alt="bandiera italiana"></a></li>
-        <li><a href="#"><img src="{% static 'img/uk.png' %}" class="flag" title="United Kingdom Flag" alt="bandiera inglese"></a></li>
+        <li><a href="/language/fr/"><img src="{% static 'img/fra.png' %}" class="flag" title="French Flag" alt="bandiera francese"></a></li>
+        <li><a href="/language/it/"><img src="{% static 'img/ita.png' %}" class="flag" title="italian Flag" alt="bandiera italiana"></a></li>
+        <li><a href="/language/uk/"><img src="{% static 'img/uk.png' %}" class="flag" title="United Kingdom Flag" alt="bandiera inglese"></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
