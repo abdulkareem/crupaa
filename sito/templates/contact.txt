@@ -1,0 +1,9 @@
+Messaggio inviato dal Sito Internet www.pmdbiomedical.com
+
+Nome: {{post.nome}}
+Cognome: {{post.cognome}}
+Telefono: {{post.telefono}}
+Fax: {{post.fax}}
+Email: {{post.email}}
+Messaggio:
+{{post.messaggio}}

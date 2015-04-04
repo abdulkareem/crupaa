@@ -32,6 +32,55 @@ def index(request):
 	#return render_to_response('index.html', context_instance=RequestContext(request))
 
 
+### contact
+def contact(request):
+    language = "it"
+    session_language = "it"
+    if 'lang' in request.COOKIES:
+        language = request.COOKIES['lang']
+    if 'lang' in request.session:
+        session_language = request.session['lang']
+
+    if request.method == 'POST': # If the form has been submitted...
+        form = ContactForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            subject = 'Messaggio dal Sito Internet www.pmdbiomedical.com'
+            #message = form.cleaned_data['messaggio']
+            message = render_to_string('contact.txt', {'post': request.POST})
+            sender = form.cleaned_data['email']
+            cc_myself = False
+
+            recipients = ['pierangelo1982@gmail.com']
+            if cc_myself:
+                recipients.append(sender)
+        
+            send_mail(subject, message, sender, recipients)
+            return HttpResponseRedirect('/success/') # Redirect after POST
+    else:
+        form = ContactForm() # An unbound form
+
+    context = {'language': language,
+                'session_language': session_language}
+
+    #return render_to_response('contact.html', {'form': form,})
+    return render_to_response('contact.html', context, context_instance=RequestContext(request))
+
+
+
+def success(request):
+    language = "it"
+    session_language = "it"
+    if 'lang' in request.COOKIES:
+        language = request.COOKIES['lang']
+    if 'lang' in request.session:
+        session_language = request.session['lang']
+
+    context = {'language': language,
+                'session_language': session_language}
+    return render_to_response('success.html', context, context_instance=RequestContext(request))
+
+
+
 ### setting language session
 def language(request, language='it'):
 	response = HttpResponse("setting language to %s" % language)
